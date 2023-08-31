@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="./assets/index-b317232d.css">
+</head>
+
+<body onload="generatePassword()">
+    <div id="wrapper" class="flex justify-center items-center h-screen">
+        <div id="container"
+            class="flex flex-col min-h-[500px] w-full justify-center items-center gap-10 bg-slate-300 py-12">
+            <h1 class="text-3xl">PASSWORD GENERATOR</h1>
+            <div id="displayContainer" class="flex border-2 border-red-600">
+                <input readonly type="text" placeholder="PASSWORD" id="passOutput" class="text-5xl">
+                <button id="copyBtn" onclick="copyPassword()" class="w-16 text-2xl bg-red-600 relative">
+                    <i class="fa-regular fa-copy"></i>
+                    <span id="copyMsg" class="absolute left-20"></span>
+                </button>
+            </div>
+            <div id="inputContainer" class="text-3xl flex flex-col gap-5">
+                <div id="passwordLenSection">
+                    <span id="passwordLenText">Password Length</span>
+                    <span id="passwordLenNumber" class="text-red-600 font-bold">10</span>
+                </div>
+                <input type="range" min="1" max="20" step="1" id="lenSlider" class="w-full"
+                    oninput="handleSlider();calcStrength();checkboxCount();generatePassword()">
+                <div id="optionSection" class="text-3xl">
+                    <div class="option">
+                        <input type="checkbox" id="uppercase"
+                            oninput="calcStrength();checkboxCount();generatePassword()" checked>
+                        <label for="uppercase">Include Uppercase Letters</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="lowercase"
+                            oninput="calcStrength();checkboxCount();generatePassword()" checked>
+                        <label for="lowercase">Include Lowercase Letters</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="number" oninput="calcStrength();checkboxCount();generatePassword()"
+                            checked>
+                        <label for="number">Include Number</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="symbol" oninput="calcStrength();checkboxCount();generatePassword()"
+                            checked>
+                        <label for="symbol">Include Symbols</label>
+                    </div>
+                </div>
+                <div id="strengthSection" class="flex justify-between items-center">
+                    <span id="strengthText">Strength</span>
+                    <span id="strengthIndicator" class="h-6 w-6 rounded-3xl"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d1bf1bacdb.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

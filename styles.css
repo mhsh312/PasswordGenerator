@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.option input {
+    width: 20px;
+    height: 20px;
+}
+
+.option input:checked {
+    accent-color: rgb(220, 38, 38);
+}
+
+#passOutput {
+    outline: none;
+}
